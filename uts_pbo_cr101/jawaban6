@@ -1,0 +1,26 @@
+#SETINGAN LARAVEL
+DB_CONNECTION=mysql
+DB_HOST= 192.168.88.108
+DB_PORT=13306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=p455w0rd
+
+#SETINGAN DOCKER
+version : '3'
+services:
+  db:
+    image: mariadb:10.2
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./mariadb:/var/lib/mysql
+      - ./conf.d:/etc/mysql/conf.d:ro
+    environment:
+      MYSQL_USER: djambred
+      MYSQL_PASSWORD: p455w0rd1!.
+      MYSQL_ROOT_PASSWORD: p455w0rd
+      TZ: Asia/Jakarta
